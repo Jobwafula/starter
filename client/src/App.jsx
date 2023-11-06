@@ -1,24 +1,23 @@
-import { useState } from 'react'
 
 
 import Home from './pages/Home'
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
-import Signup from './pages/Signup'
-import SignIn from './pages/SignIn'
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import SearchCategory from './pages/SearchCategory'
 
 function App() {
+  const router = createBrowserRouter([{
+    path:'/',
+    element:<Home />
+  },
+{
+  path:'/category',
+  element:<SearchCategory />
+}])
  
 
   return (
     <>
-     <Router>
-      <Routes>
-        <Route path='/signup'  element={<Signup />}/>
-        <Route  path='/login' element={<SignIn />}/>
-        <Route path='/' element={<Home />}/>
-      </Routes>
-     </Router>
-     <Home />
+     <RouterProvider router={router} />
        
     </>
   )
