@@ -1,7 +1,7 @@
 import React from "react";
 import Hollywood from "../components/categories/Hollywood";
 import Bollywood from "../components/categories/Bollywood";
-import {  NavLink,useNavigate } from "react-router-dom";
+import {Outlet, NavLink,useNavigate } from "react-router-dom";
 export default function SearchCategory() {
   const navigate = useNavigate()
   return (
@@ -22,13 +22,13 @@ export default function SearchCategory() {
       <section className="flex  flex-wrap justify-between  mb-[1rem] pl-[1rem] pr-[1rem]">
         <div>
          
-          <button onClick={()=>{navigate('/category/all')}} className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
+          <button onClick={()=>{navigate('all')}} className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
             All
           </button>
           
         </div>
         <div>
-          <NavLink to='/category/action' className='active:bg-rose-900'>
+          <NavLink to='action' className='active:bg-rose-900'>
           <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
             Action
           </button></NavLink>
@@ -98,6 +98,7 @@ export default function SearchCategory() {
           </button>
         </div>
       </section>
+      <Outlet />
       <sectin>
       
       </sectin>

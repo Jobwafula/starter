@@ -5,7 +5,7 @@ import SearchCategory from '../../pages/SearchCategory'
 export default function Action() {
   return (
     <div>
-        <SearchCategory />
+        
         <Bollywood />
     </div>
   )
