@@ -1,8 +1,9 @@
 import React from "react";
 import Hollywood from "../components/categories/Hollywood";
 import Bollywood from "../components/categories/Bollywood";
-
+import {  NavLink,useNavigate } from "react-router-dom";
 export default function SearchCategory() {
+  const navigate = useNavigate()
   return (
     <div className="bg-rose-100">
       <div className="flex flex-col items-center mt-[1rem]">
@@ -20,14 +21,20 @@ export default function SearchCategory() {
 
       <section className="flex  flex-wrap justify-between  mb-[1rem] pl-[1rem] pr-[1rem]">
         <div>
-          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
+         
+          <button onClick={()=>{navigate('/category/all')}} className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
             All
           </button>
+          
         </div>
         <div>
+          <NavLink to='/category/action' className='active:bg-rose-900'>
           <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
             Action
-          </button>
+          </button></NavLink>
+        
+          
+      
         </div>
         <div>
           <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
@@ -92,8 +99,7 @@ export default function SearchCategory() {
         </div>
       </section>
       <sectin>
-        <Bollywood />
-        <Hollywood />
+      
       </sectin>
     </div>
   );

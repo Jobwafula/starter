@@ -1,23 +1,25 @@
 
 
 import Home from './pages/Home'
-import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import { Routes, Route} from "react-router-dom";
 import SearchCategory from './pages/SearchCategory'
+import Action from './components/categories/Action'
+import All from './components/categories/All';
 
 function App() {
-  const router = createBrowserRouter([{
-    path:'/',
-    element:<Home />
-  },
-{
-  path:'/category',
-  element:<SearchCategory />
-}])
- 
+  
 
   return (
     <>
-     <RouterProvider router={router} />
+    <Routes>
+    
+    <Route path='/' element={<Home />}/>
+    <Route path='category'  element={<SearchCategory />}/>
+    <Route  path='category/action' element={<Action />}/>
+    <Route  path='category/all' element={<All />}/>
+
+    </Routes>
+     
        
     </>
   )
