@@ -1,26 +1,100 @@
-import React from 'react'
-import Hollywood from '../components/categories/Hollywood'
-import Bollywood from '../components/categories/Bollywood'
+import React from "react";
+import Hollywood from "../components/categories/Hollywood";
+import Bollywood from "../components/categories/Bollywood";
 
 export default function SearchCategory() {
   return (
-    <div className=''>
-        <form className='flex flex-col items-center'>
-            <input className='border text-center w-[100%] h-[3rem]  p-3 rounded ' type="text"  placeholder='search here ...'/>
+    <div className="bg-rose-100">
+      <div className="flex flex-col items-center mt-[1rem]">
+        <p className="mb-[1rem] ">Lets find a movie to watch!</p>
+        <form className="w-1/2 mb-[1rem]">
+          <div className="">
+            <input
+              className="border text-center w-[100%] h-[3rem]  p-3 rounded "
+              type="text"
+              placeholder="search here ..."
+            />
+          </div>
         </form>
-        <section className='space-x-2'>
-          <button className='hover:underline active:underline'>Hollywood</button>
-          <button className='hover:underline'>Bollywood</button>
-          <button className='hover:underline'>Nollywood</button>
-          <button className='hover:underline'>Colombia</button>
-          
-        </section>
-        <sectin>
-          <Bollywood />
-        <Hollywood />
+      </div>
 
-        </sectin>
-        
+      <section className="flex  flex-wrap justify-between  mb-[1rem] pl-[1rem] pr-[1rem]">
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
+            All
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Action
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Horror
+          </button>
+        </div>
+
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Commedy
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Hollywood
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Documentary
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900  hover:text-white hover:underline active:bg-rose-900">
+            Sports genre
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Mystery
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Cyber
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900  hover:text-white hover:underline active:bg-rose-900">
+            Musical
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Colombia
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Experimental
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Crime
+          </button>
+        </div>
+        <div>
+          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
+            Drama
+          </button>
+        </div>
+      </section>
+      <sectin>
+        <Bollywood />
+        <Hollywood />
+      </sectin>
     </div>
-  )
+  );
 }
