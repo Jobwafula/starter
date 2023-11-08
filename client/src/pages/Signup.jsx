@@ -52,10 +52,7 @@
 //         <button className="text-center w-[100%] bg-rose-900 h-[3rem] " type="submit" onClick={onsubmit}>
 //           submit
 //         </button>
-//         </div>
-        
-        
-        
+//         </div>  
 //       </form>
 //       <p className="mt-[1rem]">
 //         Already have an account? <NavLink to="/login">Sign in</NavLink>

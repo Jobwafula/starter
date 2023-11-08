@@ -1,11 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-
-  
-
 export default function GetStartedForm() {
-  
   return (
     <div>
         <form  className=' flex flex-col space-y-4  md:space-y-0 lg:space-y-0 md:flex-row lg:flex-row md:space-x-4 lg:space-x-4 '>
@@ -15,7 +10,6 @@ export default function GetStartedForm() {
                   <Link to='/category'>Get Started</Link> 
                  </button>
             </div>
-          
         </form>
     </div>
   )
