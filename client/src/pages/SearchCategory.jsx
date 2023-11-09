@@ -1,6 +1,4 @@
 import React from "react";
-import Hollywood from "../components/categories/Hollywood";
-import Bollywood from "../components/categories/Bollywood";
 import {Outlet, NavLink,useNavigate } from "react-router-dom";
 export default function SearchCategory() {
   const navigate = useNavigate()
