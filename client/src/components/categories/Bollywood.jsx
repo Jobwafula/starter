@@ -11,9 +11,6 @@ const BollywoodRoutes = () => {
     </Switch>
   );
 };
-
-
-
 // export default BollywoodRoutes;
 
 export default function Bollywood() {
