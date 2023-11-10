@@ -1,10 +1,19 @@
-import React from 'react'
-import SearchCategory from '../../pages/SearchCategory'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Horror from "./Horror";
+import SearchCategory from "../../pages/SearchCategory";
 
-export default function Horror() {
+const HorrorRoutes = () => {
   return (
-    <div>
-        <SearchCategory />
-        Horror</div>
-  )
-}
+    <Switch>
+      <Route path="/horror">
+        <div>
+          <SearchCategory />
+          Horror
+        </div>
+      </Route>
+    </Switch>
+  );
+};
+
+export default HorrorRoutes;

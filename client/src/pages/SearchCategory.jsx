@@ -1,4 +1,5 @@
 import React from "react";
+import {Outlet, NavLink,useNavigate } from "react-router-dom";
 import Hollywood from "../components/categories/Hollywood";
 import Bollywood from "../components/categories/Bollywood";
 import {Outlet, NavLink,useNavigate ,useLocation} from "react-router-dom";
