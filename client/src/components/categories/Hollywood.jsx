@@ -11,7 +11,6 @@ const HollywoodRoutes = () => {
     </Switch>
   );
 };
-
 // export default HollywoodRoutes;
 
 export default function Hollywood() {
