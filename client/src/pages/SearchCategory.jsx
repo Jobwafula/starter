@@ -1,7 +1,12 @@
 import React from "react";
 import {Outlet, NavLink,useNavigate } from "react-router-dom";
+import Hollywood from "../components/categories/Hollywood";
+import Bollywood from "../components/categories/Bollywood";
+import {Outlet, NavLink,useNavigate ,useLocation} from "react-router-dom";
 export default function SearchCategory() {
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeLink = "bg-rose-900 font-bold text-white"
   return (
     <div className="bg-rose-100">
       <div className="flex flex-col items-center mt-[1rem]">
@@ -19,14 +24,18 @@ export default function SearchCategory() {
 
       <section className="flex  flex-wrap justify-between  mb-[1rem] pl-[1rem] pr-[1rem]">
         <div>
-         
-          <button onClick={()=>{navigate('all')}} className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
+          <NavLink to='all' >
+            <button  className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900 ">
             All
           </button>
+          </NavLink>
+         
+          
           
         </div>
         <div>
-          <NavLink to='action' className='active:bg-rose-900'>
+          <NavLink to='action'
+            className={({isActive})=>isActive?'font-bold ':''}>
           <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover:underline active:bg-rose-900">
             Action
           </button></NavLink>
