@@ -53,4 +53,3 @@ function Action() {
   );
 }
 
-export default ActionRoutes;
