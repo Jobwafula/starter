@@ -1,32 +1,21 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import Nollywood from "./Nollywood";
-
-const NollywoodRoutes = (
-  <Switch>
-    <Route path="/nollywood">
-      <Nollywood />
-    </Route>
-  </Switch>
-);
-
-// export default NollywoodRoutes;
 
 export default function Nollywood() {
   const movies = [
     {
       id: 0,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
     {
       id: 1,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
   ];
+
   return (
     <div>
       <h1>Nollywood</h1>
