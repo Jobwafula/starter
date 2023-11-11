@@ -12,9 +12,8 @@ function App() {
         <Route path="category" element={<SearchCategory />}>
           <Route path="action" element={<Action />} />
           <Route path="all" element={<All />} />
-        </Route>
-
-        
+          {/* <Route path="/movie" element={<Movie />} /> */}
+        </Route>   
       </Routes>
     </>
   );

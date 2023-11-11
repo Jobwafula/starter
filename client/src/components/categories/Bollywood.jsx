@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import power from "../../assets/bollywood/power.jpg";
 import bang from "../../assets/bollywood/bang.jpg";
-import React from "react";
-import Bollywood from "./Bollywood";
-
-
 
 export default function Bollywood() {
   const [content, setContent] = useState("");
@@ -89,20 +85,6 @@ export default function Bollywood() {
   useEff
   return (
     <div className="flex flex-wrap justify-between bg-black">
-      {movies.map((movie) => (
-        <div key={movie.id} className="border-2 rounded">
-          <div className="w-[23rem] h-[20rem] z-[-1]">
-            <img
-              className="w-[100%] h-[100%] hover:p-2 hover:cursor-pointer"
-              src={movie.image.default}
-              alt={movie.title}
-            />
-          </div>
-          <div className="mt-[-3rem] bg-black-900">
-            <h1 className="bg-black text-center text-white">{movie.title}</h1>
-          </div>
-        </div>
-      ))}
       {movies.map((movie, key) => {
         return (
           <div onClick={fetchMovie} key={movie.id} className="border-2 rounded">

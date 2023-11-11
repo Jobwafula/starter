@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom"; 
 
 const ActionRoutes = () => {
   return (
@@ -53,3 +53,5 @@ function Action() {
   );
 }
 
+export default Action;
+export { ActionRoutes };

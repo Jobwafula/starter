@@ -18,27 +18,27 @@ function AllComponent() {
   const movies = [
     {
       id: 0,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
     {
       id: 1,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
     {
       id: 2,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
     {
       id: 3,
-      title: "title",
+      title: "",
       image: "",
-      description: "description",
+      description: "",
     },
   ];
 
