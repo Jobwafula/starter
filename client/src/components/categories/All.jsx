@@ -1,14 +1,14 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import All from "./All";
 import SearchCategory from "../../pages/SearchCategory";
 
 const AllRoutes = () => {
   return (
     <div>
-      <Switch>
+    
         <Route exact path="/all" component={AllComponent} />
-      </Switch>
+    
     </div>
   )
 };
