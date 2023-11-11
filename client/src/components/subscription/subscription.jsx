@@ -28,14 +28,12 @@ const Subscription = ({ onPaymentComplete }) => {
         });
       }
     };
-  
   return (
     <div>
       <h1>Unlock the Movie with a Subscription</h1>
       {isPaid ? (
         <>
-          <p>Congratulations! Your payment was successful. You can now enjoy watching the movie.</p>
-          
+          <p>Congratulations! Your payment was successful. You can now enjoy watching the movie.</p> 
         </>
       ) : (
         <>
