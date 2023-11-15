@@ -8,7 +8,6 @@ const SubscriptionPage = () => {
   const handleNext = () => {
     router.push('/success');
   };
-
   return (
     <div>
         <p>Watch any movie you want to.</p>
@@ -38,5 +37,4 @@ const SubscriptionPage = () => {
     </div>
   );
 };
-
 export default SubscriptionPage;
