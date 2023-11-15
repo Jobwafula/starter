@@ -8,7 +8,7 @@ export default function GetStartedForm() {
             <div className=''>  <input className='text-center w-[100%] h-[3rem]  p-3 rounded'  placeholder='Email Address'/></div>
             <div className=''>
                 <button  className='btn-primary ' type='submit'>
-                  <Link to='/category'>Get Started</Link> 
+                  <Link to='/pages/subscription'>Get Started</Link> 
                  </button>
             </div>
           
