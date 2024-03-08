@@ -1,8 +1,9 @@
 import React from "react";
-import {Outlet, NavLink,useNavigate } from "react-router-dom";
+import {Outlet, NavLink,useNavigate, Navigate } from "react-router-dom";
 import Bollywood from "../components/categories/Bollywood";
 
 export default function SearchCategory() {
+  const navigate = useNavigate();
   
   const activeLink = "bg-rose-900 font-bold text-white"
   return (
@@ -48,8 +49,8 @@ export default function SearchCategory() {
         </div>
 
         <div>
-          <button className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover: active:bg-rose-900">
-            Commedy
+          <button onClick={()=>navigate('/category/bollywood')} className="rounded bg-rose-200 w-[100%]  p-2 hover:bg-rose-900 hover:text-white hover: active:bg-rose-900">
+            Bollywood
           </button>
         </div>
         <div>

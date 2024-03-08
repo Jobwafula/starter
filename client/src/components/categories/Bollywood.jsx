@@ -77,18 +77,22 @@ export default function Bollywood() {
     },
   ];
   const fetchMovie = () => {
-    fetch("http://localhost:3000")
+    fetch("http://localhost:3000/movie")
       .then((response) => response.text())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   };
-  useEff
+  
   return (
     <div className="flex flex-wrap justify-between bg-black">
       {movies.map((movie, key) => {
         return (
-          <div onClick={fetchMovie} key={movie.id} className="border-2 rounded">
-            <div className="w-[23rem] h-[20rem] z-[-1]">
+          <div  key={movie.id} className="border-2 rounded">
+
+<video class="video" src='http://localhost:3000/movie' width="380px"  controls>
+
+</video>
+            {/* <div className="w-[23rem] h-[20rem] z-[-1]">
               {" "}
               <img
                 className="w-[100%] h-[100%] hover:p-2  hover:cursor-pointer"
@@ -97,7 +101,7 @@ export default function Bollywood() {
             </div>
             <div className="mt-[-3rem] bg-black-900   ">
               <h1 className="bg-black text-center text-white">{movie.title}</h1>
-            </div>
+            </div> */}
           </div>
         );
       })}

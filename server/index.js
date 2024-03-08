@@ -1,10 +1,27 @@
 const express = require('express');
 const  fs = require('fs');
 const cors = require('cors');
+const mongoose = require('mongoose')
+require('dotenv').config();
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
 const users = require('./routes/users')
+const uri = process.env.MONGO_URI
+async function connect() {
+    try {
+      await mongoose.connect(uri, {useNewUrlParser: true,
+        useUnifiedTopology: true, });
+      console.log("Connected to MongoDB");
+    } catch (error) {
+      console.error("Error connecting to MongoDB:", error.message);
+      process.exit(1); // Exit the process in case of an error
+    }
+  }
+  
+  connect();
+
+
 
 // app.use('/users',users);
 app.get('/',(req,res)=>{

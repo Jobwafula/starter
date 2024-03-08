@@ -1,6 +1,9 @@
 import mpesa from '../../assets/subscription/mpesa.jpg'
 import visa from '../../assets/subscription/visa.jpg'
+import { useNavigate } from 'react-router-dom';
 const SubscriptionPage = () => {
+  const navigate = useNavigate();
+
   
 
   return (
@@ -26,7 +29,7 @@ const SubscriptionPage = () => {
           
         </div>
         <div className="w-[50%] ml-[25%]">
-           <button className="btn-primary">Next</button>
+           <button className="btn-primary" onClick={()=>navigate('/category')}>Next</button>
         </div>
        
       </section>
