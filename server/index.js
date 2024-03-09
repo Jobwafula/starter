@@ -65,6 +65,7 @@ app.get('/movie',(req,res)=>{
     file.pipe(res)
 }
 })
+app.use('/api',users)
 app.listen(PORT,()=>{
     console.log(`server listening  to port ${PORT}` )
 })

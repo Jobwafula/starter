@@ -5,7 +5,7 @@ router.get('/users',(req,res)=>{
 
 });
 
-router.post('/create-users',(req,res)=>{
+router.post('/register',(req,res)=>{
     res.end("Users details")
 
 });
