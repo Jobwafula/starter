@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import ProgressBar from '../../components/ProgressBar';
 
 const MpesaPaymentForm = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [plan, setPlan] = useState('');
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,55 +31,62 @@ const MpesaPaymentForm = () => {
       // TODO: Handle error, show a message to the user, etc.
     }
   };
+  const [currentStep, setCurrentStep] = useState(2);
+  const totalSteps = 3; // Assuming two steps: registering and subscribing
+
+  const handleNextStep = () => {
+    setCurrentStep((prevStep) => Math.min(prevStep + 1, totalSteps));
+  };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      
-      
-      <form className="" onSubmit={handleSubmit}>
-      <div>
-      <h1 className="text-[1.5rem] text-center">Step 2</h1>
-      <p className="text-[2rem] mb-[1rem]">Pay With Mpesa</p>
-      </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phoneNumber">
-            Phone Number:
-          </label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            className="w-full px-3 py-2 border rounded-md"
-            placeholder="Enter your phone number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-        </div>
+    <section className="h-screen flex items-center justify-center">
+      <div className="w-1/2">
+        <ProgressBar currentStep={currentStep} totalSteps={totalSteps}  />
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <h1 className="text-2xl font-bold text-center mb-4">Step 2</h1>
+            <p className="text-lg mb-4 text-center">Pay With Mpesa</p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phoneNumber">
+              Phone Number:
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              className="w-full px-3 py-2 border rounded-md"
+              placeholder="Enter your phone number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="plan">
-            Period Plan:
-          </label>
-          <select
-            id="plan"
-            className="w-full px-3 py-2 border rounded-md"
-            value={plan}
-            onChange={(e) => setPlan(e.target.value)}
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="plan">
+              Period Plan:
+            </label>
+            <select
+              id="plan"
+              className="w-full px-3 py-2 border rounded-md"
+              value={plan}
+              onChange={(e) => setPlan(e.target.value)}
+            >
+              <option value="">Select Plan</option>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="bg-green-500 w-full text-white px-4 py-2 rounded-md hover:bg-green-600"
           >
-            <option value="">Select Plan</option>
-            <option value="monthly">Monthly</option>
-            <option value="quarterly">Quarterly</option>
-            <option value="yearly">Yearly</option>
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="bg-green-500 w-[100%] text-white px-4 py-2 rounded-md hover:bg-blue-600 block mx-auto"
-        >
-          Pay with M-Pesa
-        </button>
-      </form>
-    </div>
+            Pay with M-Pesa
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
