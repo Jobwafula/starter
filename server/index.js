@@ -23,7 +23,7 @@ async function connect() {
 
 
 
-// app.use('/users',users);
+ 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname +'/index.htm')
 
