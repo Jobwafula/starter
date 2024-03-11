@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 require('dotenv').config();
 const users = require('./routes/users')
-const lipa = require('./routes/daraja')
+
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
@@ -68,7 +68,64 @@ app.get('/movie',(req,res)=>{
 }
 })
 app.use('/api',users)
-app.use('/api',lipa)
+
+// token
+const secret = process.env.CONSUMER_SECRET
+const consumer = process.env.CONSUMER_KEY
+const auth = new Buffer.from(secret + consumer).toString("base64")
+const generateToken =async (req,res,nex)=>{
+  await axios.get('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials',{
+    headers:{
+      authorization:`Basic ${auth}`
+    }
+  })
+
+}
+app.post('/api/stk',generateToken, async (req,res)=>{
+  const phone = req.body.phone.subString(1)
+  const amount = req.body.amount
+  res.json({phone,amount})
+  // Function to generate a timestamp (format: YYYYMMDDHHmmss)
+const generateTimestamp = () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  return `${year}${month}${day}${hours}${minutes}${seconds}`;
+};
+
+const shortcode = process.env.MPESA_PAYBILL
+const passkey = process.env.MPESA_PASSKEY
+const password = new Buffer.from(shortcode + passkey + generateTimestamp).toString("base64")
+
+ await  axios.post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest',
+  {    
+    "BusinessShortCode": shortcode,    
+    "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTYwMjE2MTY1NjI3",    
+    "Timestamp":generateTimestamp,    
+    "TransactionType": "CustomerPayBillOnline",   //CustomerBuyGoodsOnline
+    "Amount": amount,    
+    "PartyA":shortcode,    
+    "PartyB":`254${phone}`,    
+    "PhoneNumber":`254${phone}`,    
+    "CallBackURL": "https://mydomain.com/pat",    
+    "AccountReference":`254${phone}`,    
+    "TransactionDesc":"Test"
+ }).then(
+  (data)=>{
+    console.log(data)
+    res.status(200).json.data
+  }
+).catch((error)=>{
+  console.log(error.message)
+  res.status(400).json(error.message)
+})
+
+
+})
 app.listen(PORT,()=>{
     console.log(`server listening  to port ${PORT}` )
 })
