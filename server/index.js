@@ -3,10 +3,12 @@ const  fs = require('fs');
 const cors = require('cors');
 const mongoose = require('mongoose')
 require('dotenv').config();
+const users = require('./routes/users')
+const lipa = require('./routes/daraja')
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
-const users = require('./routes/users')
+
 const uri = process.env.MONGO_URI
 async function connect() {
     try {
@@ -66,6 +68,7 @@ app.get('/movie',(req,res)=>{
 }
 })
 app.use('/api',users)
+app.use('/api',lipa)
 app.listen(PORT,()=>{
     console.log(`server listening  to port ${PORT}` )
 })
