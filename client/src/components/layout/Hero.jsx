@@ -1,6 +1,7 @@
 import React from 'react'
 import GetStartedForm from '../forms/GetStartedForm'
 import hindi from '../../assets/hrithik.jpg'
+import { Link } from 'react-router-dom'
 
 
 export default function Hero() {
@@ -14,7 +15,7 @@ export default function Hero() {
          <div className='flex justify-between p-3' >
             <div>Magnet</div>
             <div className='flex justify-end h-5 '>
-                <button className='btn-primary'>Sign In</button>
+                <button className='btn-primary'><Link to='/login'>Sign In</Link></button>
             </div>
         </div>
         <div className='flex flex-col items-center  space-y-[1rem] mt-[10%]'>
