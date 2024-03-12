@@ -12,6 +12,7 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 const uri = process.env.MONGO_URI;
+// function to connect to database
 
 async function connect() {
   try {
