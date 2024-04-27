@@ -5,7 +5,7 @@ import axios from 'axios';
 import ProgressBar from '../../components/ProgressBar';
 
 const MpesaPaymentForm = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phone, setPhoneNumber] = useState('');
   const [plan, setPlan] = useState('');
   
 
@@ -13,7 +13,7 @@ const MpesaPaymentForm = () => {
     e.preventDefault();
 
     // Perform validation on phone number and plan
-    if (!phoneNumber || !plan) {
+    if (!phone || !plan) {
       alert('Please fill in all fields.');
       return;
     }
@@ -22,7 +22,7 @@ const MpesaPaymentForm = () => {
 
     try {
       // Example: Send data to server
-      const response = await axios.post('/api/mpesa-payment', { phoneNumber, plan });
+      const response = await axios.post('/api/mpesa-payment', { phone, plan });
       console.log(response.data);
 
       // TODO: Redirect to a success page or handle payment status
@@ -56,7 +56,7 @@ const MpesaPaymentForm = () => {
               id="phoneNumber"
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter your phone number"
-              value={phoneNumber}
+              value={phone}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
